@@ -125,6 +125,25 @@ def toMonth(month):
     allMonth = {'JAN':1, 'FEB':2, 'MAR':3, 'APR':4, 'MAY':5, 'JUN':6, 'JUL':7, 'AUG':8, 'SEP':9, 'OCT':10, 'NOV':11, 'DEC':12}
     return allMonth[month]
 
+# Adding Display functionality using PrettyTable
+def printOutput(personList, familyList):
+    families = PrettyTable(["ID","Married","Divorce","Husband ID","Husband Name","Wife ID","Wife Name","Children"])
+    for p in familyList:
+        children = 'NA' if len(p.children) == 0 else '{'+str(p.children).strip('[]')+'}'
+        families.add_row([p.id, p.married, p.divorced, p.husbandId, p.husbandName, p.wifeId, p.wifeName, children])
+    persons = PrettyTable(["ID","Name","Gender","Birthday","Age","Alive","Death","Child","Spouse"])
+    for p in personList:
+        children = 'NA' if p.children == 'NA' else '{'+str(p.children).strip('[]')+'}'
+        persons.add_row([p.id, p.name, p.gender, p.birthday, str(p.age), str(p.alive), p.death, children, p.spouse])
+    print("Individuals")
+    print(persons)
+    print("Families")
+    print(families)
+
+def getOutput(file_path):
+    peopleList, familyList = parse(file_path)
+    printOutput(peopleList, familyList)
+
 def parse(file_path):
     level = tag = argument = "Not Found"
     tag_map = { '0' : ['HEAD','NOTE','TRLR'],
@@ -244,8 +263,9 @@ def parse(file_path):
                     if len(fam.children) > 0:
                         for child in fam.children:
                             wife.addChildren(child)
+            printOutput(peopleList, familyList)
     except:
         print("File not found or can't be accessed")
     return peopleList, familyList
-
+    
 parse('InputFiles/sprint1.ged')
