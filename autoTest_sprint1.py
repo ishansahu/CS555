@@ -40,7 +40,27 @@ class UserStory2_AutoTest(unittest.TestCase):
                 print("UserStory2: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Marriage date "+ str(person.marriage) + " should be after Birthday " + str(person.birthday))
         self.assertTrue(len(individualErrors) == 0, "All BIRTHDAYS occur before MARRIAGE DATE.")
 
+# Unit test for UserStory3
+#Author: Ishan Sahu
+class UserStory3_AutoTest(unittest.TestCase):
+    def test1(self):
+        individualErrors = sprint1.UserStory3()
+        if len(individualErrors)>0:
+            for person in individualErrors:
+                print("UserStory3: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Death Date: "+ str(person.death) + " should be before Birthday " + str(person.birthday))
+        self.assertTrue(len(individualErrors) == 0, "All BIRTHDAYS occur before DEATH DATE")
+
+# Unit test for UserStory4
+#Author: Ishan Sahu
+class UserStory4_AutoTest(unittest.TestCase):
+    def test1(self):
+        famErrors = sprint1.UserStory4()
+        if len(famErrors)>0:
+            for fam in famErrors:
+                print("UserStroy4: ENCOUNTERED ERROR: " + fam.id + " Marriage date: " + str(fam.married) + " should occur before Divorce date: " + str(fam.divorced))
+        self.assertTrue(len(famErrors) == 0, "All MARRIAGE DATES occur before DIVORCE.")
+
 if __name__ == '__main__':
-    gedcom_parser.outputTable('InputFiles/sprint1.ged')
+    gedcom_parser.getOutput('InputFiles/sprint1.ged')
     print("")
     unittest.main()

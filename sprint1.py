@@ -47,4 +47,29 @@ def UserStory2():
                 individualFailed_list.append(wife)
     return individualFailed_list
 
+# UserStory3 Birth before death
+# Birth should occur before death of an individual
+# Author: Ishan Sahu
+def UserStory3():
+    file_path = 'InputFiles/sprint1.ged'
+    individualFailed_list = []
+    peopleList, famList = gedcom_parser.parse(file_path)
 
+    for person in peopleList:
+        if person.alive==False and person.birthday > person.death:
+            individualFailed_list.append(person)
+    return individualFailed_list
+
+# UserStory4 Marriage before divorce
+# Marriage should occur before divorce of spouses, and divorce can only occur after marriage
+# Author: Ishan Sahu
+def UserStory4():
+    file_path = 'InputFiles/sprint1.ged'
+    individualFailed_list = []
+    peopleList, famList = gedcom_parser.parse(file_path)
+
+    for fam in famList:
+        if fam.husbandId != 'NA':
+            if fam.married != 'NA' and fam.divorced != 'NA'and fam.divorced < fam.married:
+                individualFailed_list.append(fam)
+    return individualFailed_list
