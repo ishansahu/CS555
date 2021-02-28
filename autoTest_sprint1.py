@@ -12,13 +12,31 @@ class UserStory1_AutoTest(unittest.TestCase):
         today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
         if len(individualErrors)>0:
             for person in individualErrors:
-                if person.birthday > today:
-                    print("UserStory1: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Birthday "+ str(person.birthday)+" should be before today")
-                elif person.death != 'NA' and person.death > today:
-                    print("UserStory1: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Death day "+ str(person.death)+" should be before today")
-        self.assertTrue(len(individualErrors) == 0, "All individual BIRTH and DEATH DATES occur before today.")
+                if person.birthday == 'NA':
+                    print("UserStory1: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " does not have a birthday")
+        self.assertTrue(len(individualErrors) == 0, "All individuals have BIRTH DATES.")
 
     def test_2(self):
+        individualErrors, famErrors = sprint1.UserStory1()
+        curr_datetime = datetime.datetime.today()
+        today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
+        if len(individualErrors)>0:
+            for person in individualErrors:
+                if person.birthday > today:
+                    print("UserStory1: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Birthday "+ str(person.birthday)+" should be before today")
+        self.assertTrue(len(individualErrors) == 0, "All individual BIRTH DATES occur before today.")
+
+    def test_3(self):
+        individualErrors, famErrors = sprint1.UserStory1()
+        curr_datetime = datetime.datetime.today()
+        today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
+        if len(individualErrors)>0:
+            for person in individualErrors:
+                if person.death != 'NA' and person.death > today:
+                    print("UserStory1: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Death day "+ str(person.death)+" should be before today")
+        self.assertTrue(len(individualErrors) == 0, "All individual DEATH DATES occur before today.")
+
+    def test_4(self):
         individualErrors, famErrors = sprint1.UserStory1()
         curr_datetime = datetime.datetime.today()
         today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
@@ -26,9 +44,17 @@ class UserStory1_AutoTest(unittest.TestCase):
             for fam in famErrors:
                 if fam.married != 'NA' and fam.married > today:
                     print("UserStory1: ENCOUNTERED ERROR: " + fam.id + " Marriage Date "+ str(fam.married) +" should be before today")
-                elif fam.divorced != 'NA' and fam.divorced > today:
+        self.assertTrue(len(famErrors) == 0, "All MARRIAGE DATES occur before today.")
+
+    def test_5(self):
+        individualErrors, famErrors = sprint1.UserStory1()
+        curr_datetime = datetime.datetime.today()
+        today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
+        if len(famErrors)>0:
+            for fam in famErrors:
+                if fam.divorced != 'NA' and fam.divorced > today:
                     print("UserStory1: ENCOUNTERED ERROR: " + fam.id + " Divorce Date "+ str(fam.divorced) +" should be before today")
-        self.assertTrue(len(famErrors) == 0, "All MARRIAGE and DIVORCE DATES occur before today.")
+        self.assertTrue(len(famErrors) == 0, "All DIVORCE DATES occur before today.")
 
 # Unit test for UserStory2
 # Author: Gireesh Singh Thakurathi
@@ -61,6 +87,6 @@ class UserStory4_AutoTest(unittest.TestCase):
         self.assertTrue(len(famErrors) == 0, "All MARRIAGE DATES occur before DIVORCE.")
 
 if __name__ == '__main__':
-    gedcom_parser.getOutput('InputFiles/sprint1.ged')
+    gedcom_parser.getOutput('InputFiles/Project01.ged')
     print("")
     unittest.main()
