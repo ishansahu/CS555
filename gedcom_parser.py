@@ -135,7 +135,7 @@ def printOutput(personList, familyList):
     for p in personList:
         children = 'NA' if p.children == 'NA' else '{'+str(p.children).strip('[]')+'}'
         persons.add_row([p.id, p.name, p.gender, p.birthday, str(p.age), str(p.alive), p.death, children, p.spouse])
-    print("Individuals")
+    print('Individuals')
     print(persons)
     print("Families")
     print(families)
@@ -268,4 +268,4 @@ def parse(file_path):
         print("File not found or can't be accessed")
     return peopleList, familyList
     
-parse('InputFiles/sprint1.ged')
+parse('InputFiles/Project01.ged')
