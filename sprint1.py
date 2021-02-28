@@ -5,7 +5,7 @@ import datetime
 # Dates (birth, marriage, divorce, death) should not be after the current date
 # Author: Gireesh Singh Thakurathi
 def UserStory1():
-    file_path = 'InputFiles/sprint1.ged'
+    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     familyFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
@@ -13,7 +13,7 @@ def UserStory1():
     today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
 
     for person in peopleList:
-        if person.birthday > today:
+        if person.birthday == 'NA' and person.birthday > today:
             individualFailed_list.append(person)
         elif person.death != 'NA' and person.death > today:
             individualFailed_list.append(person)
@@ -30,7 +30,7 @@ def UserStory1():
 # Birth should occur before marriage of an individual
 # Author: Gireesh Singh Thakurathi
 def UserStory2():
-    file_path = 'InputFiles/sprint1.ged'
+    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
 
@@ -51,7 +51,7 @@ def UserStory2():
 # Birth should occur before death of an individual
 # Author: Ishan Sahu
 def UserStory3():
-    file_path = 'InputFiles/sprint1.ged'
+    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
 
@@ -64,7 +64,7 @@ def UserStory3():
 # Marriage should occur before divorce of spouses, and divorce can only occur after marriage
 # Author: Ishan Sahu
 def UserStory4():
-    file_path = 'InputFiles/sprint1.ged'
+    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
 
