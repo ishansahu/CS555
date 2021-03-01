@@ -54,9 +54,18 @@ def UserStory3():
     file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
-
+    curr_datetime = datetime.datetime.today()
+    today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
     for person in peopleList:
-        if person.alive==False and person.birthday > person.death:
+        if person.alive == 'True' and person.death is not None:
+            individualFailed_list.append(person)
+        elif person.alive == 'False' and person.death is None:
+            individualFailed_list.append(person)
+        elif person.alive == 'False' and person.death > today:
+            individualFailed_list.append(person)
+        elif person.alive == 'False' and person.birthday > person.death:
+            individualFailed_list.append(person)
+        elif person.birthday is None:
             individualFailed_list.append(person)
     return individualFailed_list
 
