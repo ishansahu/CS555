@@ -75,51 +75,62 @@ class UserStory2_AutoTest(unittest.TestCase):
 class UserStory3_AutoTest(unittest.TestCase):
     def test1(self):
         individualErrors = sprint1.UserStory3()
+        flag = True
         if len(individualErrors) > 0:
             for person in individualErrors:
-                if person.alive == 'True' and person.death is not None:
+                if person.alive and person.death != "NA":
+                    flag = False
                     print("UserStory3: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + "is alive and "
                                                                                                    "death date is not "
                                                                                                    "null ")
-        self.assertTrue(len(individualErrors) == 0, "No alive person's death date is set.")
+        self.assertTrue(flag, "No alive person's death date is set.")
 
     def test2(self):
         individualErrors = sprint1.UserStory3()
+        flag = True
         if len(individualErrors) > 0:
             for person in individualErrors:
-                if person.alive == 'False' and person.death is None:
+                if not person.alive and person.death == "NA":
+                    flag = False
                     print("UserStory3: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + "is dead and death "
                                                                                                    "date is not set.")
-        self.assertTrue(len(individualErrors) == 0, "All dead person's death date is set")
+        self.assertTrue(flag, "All dead person's death date is set")
 
     def test3(self):
         individualErrors = sprint1.UserStory3()
         curr_datetime = datetime.datetime.today()
         today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
+        flag = True
         if len(individualErrors) > 0:
             for person in individualErrors:
-                if person.alive == 'False' and person.death > today:
+                if not person.alive and person.death > today:
+                    flag = False
                     print(
                         "UserStory3: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Death Date: " + str(
                             person.death) + " should be before today's date " + str(today))
-        self.assertTrue(len(individualErrors) == 0, "All dead persons death date is before today's date.")
+        self.assertTrue(flag, "All dead persons death date is before today's date.")
 
     def test4(self):
         individualErrors = sprint1.UserStory3()
+        flag = True
         if len(individualErrors) > 0:
             for person in individualErrors:
-                print("UserStory3: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Death Date: " + str(
-                    person.death) + " should be before Birthday " + str(person.birthday))
-        self.assertTrue(len(individualErrors) == 0, "All birth dates occur before death date")
+                if not person.alive and person.birthday > person.death:
+                    flag = False
+                    print("UserStory3: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " Death Date: " + str(
+                        person.death) + " should be before Birthday " + str(person.birthday))
+        self.assertTrue(flag, "All birth dates occur before death date")
 
     def test5(self):
         individualErrors = sprint1.UserStory3()
+        flag = True
         if len(individualErrors) > 0:
             for person in individualErrors:
-                if person.alive == 'False' and person.birthday > person.death:
+                if not person.birthday:
+                    flag = False
                     print(
                         "UserStory3: ENCOUNTERED ERROR: " + person.id + " Name " + person.name + " birthdate is not set")
-        self.assertTrue(len(individualErrors) == 0, "All birth dates are set")
+        self.assertTrue(flag, "All birth dates are set")
 
 
 # Unit test for UserStory4

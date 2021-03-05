@@ -57,15 +57,15 @@ def UserStory3():
     curr_datetime = datetime.datetime.today()
     today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
     for person in peopleList:
-        if person.alive == 'True' and person.death is not None:
+        if person.alive and not person.death:
             individualFailed_list.append(person)
-        elif person.alive == 'False' and person.death is None:
+        elif not person.alive and person.death == "NA":
             individualFailed_list.append(person)
-        elif person.alive == 'False' and person.death > today:
+        elif not person.alive and person.death > today:
             individualFailed_list.append(person)
-        elif person.alive == 'False' and person.birthday > person.death:
+        elif not person.alive and person.birthday > person.death:
             individualFailed_list.append(person)
-        elif person.birthday is None:
+        elif not person.birthday:
             individualFailed_list.append(person)
     return individualFailed_list
 

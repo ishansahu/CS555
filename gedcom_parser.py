@@ -247,7 +247,7 @@ def parse(file_path):
                 else:
                     valid_tags ='N'
                     level, tag, argument =args
-                print("<--{}|{}|{}|{}".format(level, tag, valid_tags, argument))
+                # print("<--{}|{}|{}|{}".format(level, tag, valid_tags, argument))
             for fam in familyList:
                 if fam.husbandId != 'NA':
                     husband = getPerson(fam.husbandId, peopleList)

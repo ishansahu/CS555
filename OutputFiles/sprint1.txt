@@ -1,0 +1,63 @@
+
+Individuals
++-----+------------------+--------+------------+-----+-------+------------+----------------------------+--------+
+|  ID |       Name       | Gender |  Birthday  | Age | Alive |   Death    |           Child            | Spouse |
++-----+------------------+--------+------------+-----+-------+------------+----------------------------+--------+
+|  I1 |   Ishan /Sahu/   |   M    | 2022-01-06 |  -2 |  True |     NA     |             {}             |   NA   |
+|  I2 | Digamber /Sahu/  |   M    | 1962-10-13 |  58 |  True |     NA     |        {'I1', 'I4'}        |   I3   |
+|  I3 |   Manju /Jais/   |   F    | 1964-07-14 |  56 |  True |     NA     |        {'I1', 'I4'}        |   I2   |
+|  I4 |  Indresh /Sahu/  |   M    | 1994-11-14 |  26 |  True |     NA     |             {}             |   NA   |
+|  I5 |   Kesar /Jais/   |   F    | 1934-08-16 |  86 | False | 2022-12-27 |    {'I3', 'I22', 'I23'}    |   I6   |
+|  I6 |  Dayaram /Jais/  |   M    | 1930-03-15 |  90 | False | 2001-05-20 |    {'I3', 'I22', 'I23'}    |   I5   |
+|  I7 |  Sushila /Sahu/  |   F    | 1938-10-24 |  82 | False | 2020-06-16 | {'I2', 'I9', 'I10', 'I11'} |   I8   |
+|  I8 |  Narayan /Sahu/  |   M    | 1933-03-21 |  87 | False | 2017-12-16 | {'I2', 'I9', 'I10', 'I11'} |   I7   |
+|  I9 |   Priya /Sahu/   |   F    | 1969-11-17 |  51 |  True |     NA     |       {'I19', 'I18'}       |  I17   |
+| I10 |   Kiran /Sahu/   |   F    | 1969-11-07 |  51 |  True |     NA     |          {'I24'}           |  I16   |
+| I11 |   Megha /Sahu/   |   F    | 1965-09-08 |  55 |  True |     NA     |       {'I14', 'I13'}       |  I12   |
+| I12 | Himanshu /Nagar/ |   M    | 1959-04-19 |  61 | False | 1947-08-08 |          {'I13'}           |  I11   |
+| I13 |   Amit /Nagar/   |   M    | 1988-08-14 |  32 |  True |     NA     |             {}             |   NA   |
+| I14 |  Deepa /Rajput/  |   F    | 1990-06-15 |  30 |  True |     NA     |             {}             |  I15   |
+| I15 |  Deepak /Manto/  |   M    | 1986-02-22 |  34 |  True |     NA     |             {}             |  I14   |
+| I16 | Devendra /Sahu/  |   M    | 1965-03-14 |  55 |  True |     NA     |          {'I24'}           |  I10   |
+| I17 |   Raj /Kumar/    |   M    | 1962-11-23 |  58 |  True |     NA     |          {'I18'}           |   I9   |
+| I18 |  Kabir /Kumar/   |   M    | 1989-10-11 |  31 |  True |     NA     |             {}             |   NA   |
+| I19 |  Nidhi /Singh/   |   F    | 1993-05-08 |  27 |  True |     NA     |             {}             |   NA   |
+| I20 | Santosh /Singh/  |   M    | 1982-08-06 |  38 |  True |     NA     |          {'I19'}           |   I9   |
+| I21 |   Ram /Rajput/   |   M    | 1967-09-05 |  53 |  True |     NA     |          {'I14'}           |  I11   |
+| I22 |  Subhash /Jais/  |   M    | 1955-11-08 |  65 |  True |     NA     |          {'I26'}           |  I25   |
+| I23 |  Shushma /Jais/  |   F    | 1971-09-07 |  49 |  True |     NA     |             {}             |   NA   |
+| I24 |  Manish /Sahu/   |   M    |            |  0  |  True |     NA     |             {}             |   NA   |
+| I25 |  Sarita /Sahu/   |   F    | 1990-10-16 |  30 |  True |     NA     |          {'I26'}           |  I22   |
+| I26 |  Pratik /Jais/   |   M    | 1988-07-06 |  32 |  True |     NA     |             {}             |   NA   |
++-----+------------------+--------+------------+-----+-------+------------+----------------------------+--------+
+Families
++-----+------------+------------+------------+------------------+---------+----------------+----------------------------+
+|  ID |  Married   |  Divorce   | Husband ID |   Husband Name   | Wife ID |   Wife Name    |          Children          |
++-----+------------+------------+------------+------------------+---------+----------------+----------------------------+
+|  F1 |     NA     |     NA     |     I2     | Digamber /Sahu/  |    I3   |  Manju /Jais/  |        {'I1', 'I4'}        |
+|  F2 |     NA     |     NA     |     I8     |  Narayan /Sahu/  |    I7   | Sushila /Sahu/ | {'I2', 'I9', 'I10', 'I11'} |
+|  F3 |     NA     |     NA     |     I6     |  Dayaram /Jais/  |    I5   |  Kesar /Jais/  |    {'I3', 'I22', 'I23'}    |
+|  F4 | 1991-05-03 |     NA     |    I20     | Santosh /Singh/  |    I9   |  Priya /Sahu/  |          {'I19'}           |
+|  F5 | 2023-12-25 | 1980-03-16 |    I17     |   Raj /Kumar/    |    I9   |  Priya /Sahu/  |          {'I18'}           |
+|  F6 |     NA     |     NA     |    I16     | Devendra /Sahu/  |   I10   |  Kiran /Sahu/  |          {'I24'}           |
+|  F7 |     NA     |     NA     |    I21     |   Ram /Rajput/   |   I11   |  Megha /Sahu/  |          {'I14'}           |
+|  F8 |     NA     |     NA     |    I12     | Himanshu /Nagar/ |   I11   |  Megha /Sahu/  |          {'I13'}           |
+|  F9 | 2022-01-12 |     NA     |    I15     |  Deepak /Manto/  |   I14   | Deepa /Rajput/ |             NA             |
+| F10 | 1984-04-07 |     NA     |    I22     |  Subhash /Jais/  |   I25   | Sarita /Sahu/  |          {'I26'}           |
++-----+------------+------------+------------+------------------+---------+----------------+----------------------------+
+
+UserStory1: ENCOUNTERED ERROR: I5 Name Kesar /Jais/ Death day 2022-12-27 should be before today
+
+UserStory1: ENCOUNTERED ERROR: F5 Marriage Date 2023-12-25 should be before today
+
+UserStory1: ENCOUNTERED ERROR: F9 Marriage Date 2022-01-12 should be before today
+
+UserStory2: ENCOUNTERED ERROR: I25 Name Sarita /Sahu/ Marriage date 1984-04-07 should be after Birthday 1990-10-16
+
+UserStory3: ENCOUNTERED ERROR: I5 Name Kesar /Jais/ Death Date: 2022-12-27 should be before today's date 2021-03-04
+
+UserStory3: ENCOUNTERED ERROR: I12 Name Himanshu /Nagar/ Death Date: 1947-08-08 should be before Birthday 1959-04-19
+
+UserStory3: ENCOUNTERED ERROR: I24 Name Manish /Sahu/ birthdate is not set
+UserStroy4: ENCOUNTERED ERROR: F5 Marriage date: 2023-12-25 should occur before Divorce date: 1980-03-16
+
