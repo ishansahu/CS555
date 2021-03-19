@@ -15,8 +15,10 @@ def UserStory1():
     for person in peopleList:
         if person.birthday == 'NA' and person.birthday > today:
             individualFailed_list.append(person)
-        elif person.death != 'NA' and person.death > today:
+            continue
+        if person.death != 'NA' and person.death > today:
             individualFailed_list.append(person)
+            continue
 
     for fam in famList:
         if fam.married != 'NA' and fam.married > today:
@@ -37,14 +39,16 @@ def UserStory2():
     for fam in famList:
         if fam.husbandId != 'NA':
             husb = gedcom_parser.getPerson(fam.husbandId, peopleList)
-            if fam.married != 'NA' and husb.birthday > fam.married:
-                husb.marriage = fam.married
-                individualFailed_list.append(husb)
+            if fam.married != 'NA':
+                if husb.birthday > fam.married:
+                    husb.marriage = fam.married
+                    individualFailed_list.append(husb)
         if fam.wifeId != 'NA':
             wife = gedcom_parser.getPerson(fam.wifeId, peopleList)
-            if fam.married != 'NA' and wife.birthday > fam.married:
-                wife.marriage = fam.married
-                individualFailed_list.append(wife)
+            if fam.married != 'NA':
+                if wife.birthday > fam.married:
+                    wife.marriage = fam.married
+                    individualFailed_list.append(wife)
     return individualFailed_list
 
 # UserStory3 Birth before death
