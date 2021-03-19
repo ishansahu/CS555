@@ -4,8 +4,9 @@ import datetime
 # UserStory1 Dates before current date
 # Dates (birth, marriage, divorce, death) should not be after the current date
 # Author: Gireesh Singh Thakurathi
+
+file_path = 'InputFiles/Project01.ged'
 def UserStory1():
-    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     familyFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
@@ -30,7 +31,6 @@ def UserStory1():
 # Birth should occur before marriage of an individual
 # Author: Gireesh Singh Thakurathi
 def UserStory2():
-    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
 
@@ -51,7 +51,6 @@ def UserStory2():
 # Birth should occur before death of an individual
 # Author: Ishan Sahu
 def UserStory3():
-    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
     curr_datetime = datetime.datetime.today()
@@ -73,12 +72,9 @@ def UserStory3():
 # Marriage should occur before divorce of spouses, and divorce can only occur after marriage
 # Author: Ishan Sahu
 def UserStory4():
-    file_path = 'InputFiles/Project01.ged'
     individualFailed_list = []
     peopleList, famList = gedcom_parser.parse(file_path)
-
     for fam in famList:
-        if fam.husbandId != 'NA':
-            if fam.married != 'NA' and fam.divorced != 'NA'and fam.divorced < fam.married:
+        if fam.husbandId != 'NA' and fam.married != 'NA' and fam.divorced != 'NA' and fam.divorced < fam.married:
                 individualFailed_list.append(fam)
     return individualFailed_list
