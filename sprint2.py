@@ -10,15 +10,16 @@ def UserStory5():
     individualFailed_list=[]
     for fam in famList:
         if fam.husbandId != 'NA':
-            h = gedcom_parser.findPerson(fam.husbandId, peopleList)
+            h = gedcom_parser.getPerson(fam.husbandId, peopleList)
             husb = h.createDeepCopy(h)
             if fam.married != 'NA' and husb.alive == False and husb.death < fam.married:
                 husb.marriage = fam.married
                 individualFailed_list.append(husb)
         if fam.wifeId != 'NA':
-            w = gedcom_parser.findPerson(fam.wifeId, peopleList)
+            w = gedcom_parser.getPerson(fam.wifeId, peopleList)
             wife = w.createDeepCopy(w)
             if fam.married != 'NA'  and wife.alive==False and wife.death < fam.married:
                 wife.marriage = fam.married
                 individualFailed_list.append(wife)
     return individualFailed_list
+
