@@ -54,11 +54,11 @@ def UserStory7():
     today = datetime.date(curr_datetime.year, curr_datetime.month, curr_datetime.day)
     deathFailed_list, peopleFailed_list = [],[]
     for person in peopleList:
-        if not person.alive :
+        if not person.alive:
             limit = person.birthday.year + 150
             if person.death.year > limit:
                 deathFailed_list.append(person)
-        if today.year > person.birthday.year + 150 and person.alive :
+        if today.year > person.birthday.year + 150 and person.alive:
             peopleFailed_list.append(person)
     return deathFailed_list, peopleFailed_list
 
