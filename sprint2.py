@@ -6,8 +6,7 @@ file_path = 'InputFiles/Project01.ged'
 # Marriage should occur before death of an individual
 # Author: Gireesh Singh Thakurathi
 def UserStory5():
-    file_ = 'gedcomTests/main_test.ged'
-    peopleList, famList = gedcom_parser.parse(file_)
+    peopleList, famList = gedcom_parser.parse(file_path)
     individualFailed_list=[]
     for fam in famList:
         if fam.husbandId != 'NA':
