@@ -20,7 +20,7 @@ class UserStory5_AutoTest(unittest.TestCase):
 class UserStory7_AutoTest(unittest.TestCase):
 
     def test1(self):
-        deathError, individualErrors = sprint2.US07()
+        deathError, individualErrors = sprint2.UserStory7()
         t = datetime.datetime.today()
         today = datetime.date(t.year, t.month, t.day)
 
