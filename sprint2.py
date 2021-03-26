@@ -2,7 +2,10 @@ import gedcom_parser
 
 file_path = 'InputFiles/Project01.ged'
 
-def US05():  # US05: Marriage Before Death
+# US05: Marriage Before Death
+# Marriage should occur before death of an individual
+# Author: Gireesh Singh Thakurathi
+def UserStory5():
     file_ = 'gedcomTests/main_test.ged'
     peopleList, famList = gedcom_parser.parse(file_)
     individualFailed_list=[]
