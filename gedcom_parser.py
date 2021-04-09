@@ -38,7 +38,9 @@ class person(object):
         self.death = "NA"
         self.children = []
         self.spouse = "NA"
-        self.countID= ""
+        self.countID = ""
+        self.marriageList = []
+        self.divorceList = []
     def setName(self, name):
         self.name = name
     def setGender(self, gender):
