@@ -26,7 +26,7 @@ class UserStory10_AutoTest(unittest.TestCase):
 
 # Unit test for UserStory 08
 # Author: Ishan Sahu
-class TestUS08(unittest.TestCase):
+class UserStory08_AutoTest(unittest.TestCase):
     def test1(self):
         marriageFailed_list, divorceFailed_list = sprint3.UserStory08()
         for person in marriageFailed_list:
@@ -39,7 +39,7 @@ class TestUS08(unittest.TestCase):
 
 # Unit test for UserStory 11
 # Author: Ishan Sahu
-class TestUS11(unittest.TestCase):
+class UserStory11_AutoTest(unittest.TestCase):
     def test_US11_individuals(self):
         individualFailed_list = sprint3.UserStory11()
         for person in individualFailed_list:
