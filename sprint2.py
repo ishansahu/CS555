@@ -3,7 +3,7 @@ import datetime
 
 file_path = 'InputFiles/Project01.ged'
 
-# US05: Marriage Before Death
+# UserStory5: Marriage Before Death
 # Marriage should occur before death of an individual
 # Author: Gireesh Singh Thakurathi
 def UserStory5():

@@ -3,7 +3,7 @@ import datetime
 
 file_path = 'InputFiles/Project01.ged'
 
-# US09: Birth before death of parents
+# UserStory9: Birth before death of parents
 # Child should be born before death of mother and before 9 months after death of father
 # Author: Gireesh Singh Thakurathi
 def UserStory9():
@@ -35,7 +35,7 @@ def UserStory9():
 
     return childerror
 
-# US10: Marriage after 14
+# UserStory10: Marriage after 14
 # Marriage should be at least 14 years after birth of both spouses (parents must be at least 14 years old)
 # Author: Gireesh Singh Thakurathi
 def UserStory10():
@@ -58,7 +58,7 @@ def UserStory10():
     return marriageFailed_list
 
 
-# US08 Birth before marriage of parents
+# UserStory8 Birth before marriage of parents
 # Children should be born after marriage of parents and no more than 9 months after their divorce.
 # Author: Ishan Sahu
 
@@ -91,7 +91,7 @@ def UserStory08():
 
 
 
-# US11 No bigamy
+# UserStory11 No bigamy
 # Individual should not be married to 2 or more people at the same time.
 # Author: Ishan Sahu
 
