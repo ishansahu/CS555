@@ -40,7 +40,7 @@ class UserStory08_AutoTest(unittest.TestCase):
 # Unit test for UserStory 11
 # Author: Ishan Sahu
 class UserStory11_AutoTest(unittest.TestCase):
-    def test_US11_individuals(self):
+    def test1(self):
         individualFailed_list = sprint3.UserStory11()
         for person in individualFailed_list:
             print("ERROR: INDIVIDUAL: US11: " + person.id + " Name " + person.name + " BIGAMY error, married to more than 1 person at the same time")

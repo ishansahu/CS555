@@ -1,15 +1,12 @@
 import gedcom_parser
-import sprint2
 import unittest
-import datetime
-
 
 import sprint4
 
 # Unittest for UserStory12
 # Author: Ishan Sahu
 class UserStory12_AutoTest(unittest.TestCase):
-    def test_US12_individuals(self):
+    def test1(self):
         individualFailed_list = sprint4.UserStory12()
         for person in individualFailed_list:
             if person[1].gender == "M":
@@ -24,11 +21,10 @@ class UserStory12_AutoTest(unittest.TestCase):
                     person[0].birthday))
         self.assertTrue(len(individualFailed_list) == 0, "USer Story 12: Completed")
 
-
 # Unit test for UserStory15
 # Author: Ishan Sahu
 class UserStory15_AutoTest(unittest.TestCase):
-    def test_US15_individuals(self):
+    def test1(self):
         familyFailed_list = sprint4.UserStory15()
         for family in familyFailed_list:
             print("ERROR: FAMILY: UserStory15: " + family.id + " has more than 15 siblings")
@@ -52,7 +48,6 @@ class UserStory14_AutoTest(unittest.TestCase):
 
     def test1(self):
         sibling_Failed_list = sprint4.UserStory14()
-
         for fam in sibling_Failed_list:
             print("UserStory14: ERROR ENCOUNTERED: "+ fam.id + " has 5 or more children with the same birthday")
 
@@ -61,12 +56,10 @@ class UserStory14_AutoTest(unittest.TestCase):
 # Unit test for UserStory16
 # Author: Gireesh Singh Thakurathi
 class UserStory16_AutoTest(unittest.TestCase):
-    def test_US16_individuals(self):
+    def test1(self):
         Error = sprint4.UserStory16()
-
         for family in Error:
             print("UserStory16: ERROR ENCOUNTERED: " + family.id + " has last name mismatch in males")
-
         self.assertTrue(len(Error) == 0, "All male members of every family have the same last name")
 
 if __name__ == '__main__':
